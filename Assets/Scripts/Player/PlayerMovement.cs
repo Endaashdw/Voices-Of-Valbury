@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!dead)
         {
+            ScoreManager.instance.AddToScore(1);
             Vector3 targetSpeed;
 
             if (microphoneData != null)
