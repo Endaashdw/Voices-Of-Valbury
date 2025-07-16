@@ -27,6 +27,8 @@ public class ScaleFromMicrophone : MonoBehaviour
     [Header("Misc")]
     [SerializeField] private AudioLoudnessDetection detector;
     public float loudness;
+    [Header("For Shooting Test")]
+    public float normalizedLoudness;
 
     // Update is called once per frame
     void Update()
@@ -38,9 +40,11 @@ public class ScaleFromMicrophone : MonoBehaviour
             loudness = 0;
         }
 
+        normalizedLoudness = Mathf.InverseLerp(0, loudnessSensibility, loudness);
+
         if (result == Mode.Scaling)
         {
-            transform.localScale = Vector2.Lerp(minScale, maxScale, loudness);
+            transform.localScale = Vector2.Lerp(minScale, maxScale, normalizedLoudness);
         }
     }
 }
