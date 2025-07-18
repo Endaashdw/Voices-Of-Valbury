@@ -26,8 +26,7 @@ public class Bullet : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer <= 0f)
         {
-            gameObject.SetActive(false);
-            rb.linearVelocity = Vector3.zero;
+			Destroy(gameObject);
         }
     }
 }
