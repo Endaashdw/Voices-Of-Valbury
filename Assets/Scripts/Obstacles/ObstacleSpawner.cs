@@ -3,7 +3,7 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
 	[SerializeField] GameObject obstaclePrefab;
-	[SerializeField] private BoxCollider playerCollider;
+	[SerializeField] private GameObject player;
 
 	[Header("Spawn Timer")]
 	[SerializeField] private float spawnTimer;
@@ -30,7 +30,7 @@ public class ObstacleSpawner : MonoBehaviour
 
 			GameObject obstacle = Instantiate(obstaclePrefab, transform.position, transform.rotation);
 
-			obstacle.GetComponent<Obstacle>().playerCollider = playerCollider;
+			obstacle.GetComponent<Obstacle>().player = player;
 		}
     }
 }
