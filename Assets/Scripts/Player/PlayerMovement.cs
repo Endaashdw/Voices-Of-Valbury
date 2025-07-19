@@ -35,41 +35,41 @@ public class PlayerMovement : MonoBehaviour
         if (!dead)
         {
             ScoreManager.instance.AddToScore(1);
-            Vector3 targetSpeed = Vector2.zero;
+            Vector3 targetSpeed;
 
-            if (microphoneData != null)
+            if (microphoneData)
             {
-                // TriggerCondition check BEFORE anything else
-                switch (limit)
-                {
-                    case TriggerCondition.Low:
-                        if (microphoneData.normalizedLoudness <= 0.05f && !hasFlashed)
-                        {
-                            shooter.Fire();
-                            shootingTest.Flash();
-                            hasFlashed = true;
-                            return;
-                        }
-                        else if (microphoneData.normalizedLoudness > 0.05f)
-                        {
-                            hasFlashed = false;
-                        }
-                        break;
-
-                    case TriggerCondition.High:
-                        if (microphoneData.normalizedLoudness > 0.5f && !hasFlashed)
-                        {
-                            shooter.Fire();
-                            shootingTest.Flash();
-                            hasFlashed = true;
-                            return;
-                        }
-                        else if (microphoneData.normalizedLoudness <= 0.5f)
-                        {
-                            hasFlashed = false;
-                        }
-                        break;
-                }
+                // // TriggerCondition check BEFORE anything else
+                // switch (limit)
+                // {
+                //     case TriggerCondition.Low:
+                //         if (microphoneData.normalizedLoudness <= 0.05f && !hasFlashed)
+                //         {
+                //             shooter.Fire();
+                //             shootingTest.Flash();
+                //             hasFlashed = true;
+                //             return;
+                //         }
+                //         else if (microphoneData.normalizedLoudness > 0.05f)
+                //         {
+                //             hasFlashed = false;
+                //         }
+                //         break;
+                //
+                //     case TriggerCondition.High:
+                //         if (microphoneData.normalizedLoudness > 0.5f && !hasFlashed)
+                //         {
+                //             shooter.Fire();
+                //             shootingTest.Flash();
+                //             hasFlashed = true;
+                //             return;
+                //         }
+                //         else if (microphoneData.normalizedLoudness <= 0.5f)
+                //         {
+                //             hasFlashed = false;
+                //         }
+                //         break;
+                // }
 
                 // Movement logic
                 if (microphoneData.loudness > 0.01f)
