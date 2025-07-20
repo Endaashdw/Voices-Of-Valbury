@@ -26,7 +26,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();
         microphoneData = FindAnyObjectByType<ScaleFromMicrophone>();
     }
 

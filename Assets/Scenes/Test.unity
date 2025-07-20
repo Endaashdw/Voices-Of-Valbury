@@ -1050,6 +1050,7 @@ MonoBehaviour:
   movable: 1
   microphoneData: {fileID: 1366629590}
   _rigidbody: {fileID: 1366629591}
+<<<<<<< Updated upstream
   shootingTest: {fileID: 1366629593}
   shooter: {fileID: 1366629594}
   limit: 0
@@ -1162,6 +1163,8 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1851138980}
   m_SourcePrefab: {fileID: 100100000, guid: 8497430f0af46b848a42d56028b9074a, type: 3}
+=======
+>>>>>>> Stashed changes
 --- !u!1 &1731666173
 GameObject:
   m_ObjectHideFlags: 0
