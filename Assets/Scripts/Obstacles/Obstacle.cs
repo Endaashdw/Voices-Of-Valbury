@@ -5,7 +5,7 @@ public class Obstacle : MonoBehaviour
 	[SerializeField]
 	private float speed = 5.0f;
 
-	[SerializeField] private float exitBound = -20f;
+	[SerializeField] private float exitBound = -30f;
 	private Rigidbody rb;
 
 	[Header("Colliders")]
