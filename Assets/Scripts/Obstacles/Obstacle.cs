@@ -33,9 +33,7 @@ public class Obstacle : MonoBehaviour
 
 	// If using contacts instead.
 	private void OnCollisionEnter(Collision collision) {
-		ContactPoint contactPoint = collision.contacts[0];
-
-		if (contactPoint.otherCollider == player.GetComponent<BoxCollider>()) {
+		if (collision.gameObject == player) {
 			KillPlayer();
 		}
 	}
