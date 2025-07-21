@@ -5,37 +5,33 @@ public class AutoShooter : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private LayerMask enemyLayer;
+
     [SerializeField] private float aimTime = 1f;
     [SerializeField] private float fireCooldown = 1.5f;
-    [SerializeField] private int bulletPoolSize = 20;
+    [SerializeField] private int maxEnergy = 5;
 
     private float aimTimer;
     private float fireCooldownTimer;
+    private int energy;
+
     private int currentIndex = 0;
     private Bullet[] bullets;
 
     private void Start()
     {
-        bullets = new Bullet[bulletPoolSize];
-        
-        for (int i = 0; i < bulletPoolSize; i++)
+        bullets = new Bullet[maxEnergy];
+        energy = maxEnergy;
+
+        for (int i = 0; i < maxEnergy; i++)
         {
             GameObject obj = Instantiate(bulletPrefab, firePoint, true);
 
             obj.SetActive(false);
             bullets[i] = obj.GetComponent<Bullet>();
-        }   
-    }
-
-    private void FixedUpdate()
-    {
-        if (EnemySpawner.Instance.spawnedEnemies.Count > 0)
-        {
-            AimAndShoot();
         }
     }
 
-    private void AimAndShoot()
+    private void FixedUpdate()
     {
         fireCooldownTimer += Time.fixedDeltaTime;
 
@@ -76,12 +72,19 @@ public class AutoShooter : MonoBehaviour
 
             return;
         }
+        if (energy <= 0)
+        {
+            // return; TODO: implement energy collection
+        }
 
         Bullet b = bullets[currentIndex];
-         
+
         b.Activate(firePoint.position);
 
         currentIndex++;
-        if (currentIndex >= bulletPoolSize) currentIndex = 0;
+
+        if (currentIndex >= maxEnergy) currentIndex = 0;
+
+        energy--;
     }
 }

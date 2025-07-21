@@ -681,7 +681,7 @@ GameObject:
   m_Component:
   - component: {fileID: 776976950}
   - component: {fileID: 776976951}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -802,6 +802,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 762998039}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &811549666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 811549667}
+  m_Layer: 0
+  m_Name: Energy Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &811549667
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811549666}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.911854, y: -0.68072426, z: -10.06052}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
@@ -970,7 +1001,7 @@ GameObject:
   - component: {fileID: 1366629593}
   - component: {fileID: 1366629594}
   - component: {fileID: 1366629595}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -996,7 +1027,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 2, y: 2, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1366629589
 Transform:
@@ -1007,7 +1038,7 @@ Transform:
   m_GameObject: {fileID: 1366629585}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: 0}
+  m_LocalPosition: {x: -6, y: 0, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1044,7 +1075,7 @@ Rigidbody:
   m_GameObject: {fileID: 1366629585}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.05
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1060,7 +1091,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 0
+  m_Constraints: 122
   m_CollisionDetection: 1
 --- !u!114 &1366629592
 MonoBehaviour:
@@ -1074,17 +1105,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b26ed9f28c372459b6e8d4e7b09340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 12
-  deceleration: 8
-  minBounds: {x: -7.5, y: -5}
-  maxBounds: {x: 7.5, y: 5}
-  dead: 0
-  movable: 1
   microphoneData: {fileID: 1366629590}
-  _rigidbody: {fileID: 1366629591}
-  shootingTest: {fileID: 1366629593}
-  shooter: {fileID: 1366629594}
-  limit: 1
+  lift: 23
+  damping: 1.5
+  maxSpeed: 17
+  minBounds: -5
+  maxBounds: 5
 --- !u!114 &1366629593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,7 +1160,7 @@ MonoBehaviour:
     m_Bits: 64
   aimTime: 1
   fireCooldown: 1.5
-  bulletPoolSize: 20
+  maxEnergy: 5
 --- !u!1 &1410622633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1731666174}
   - component: {fileID: 1731666175}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Gold Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1330,7 +1356,7 @@ Transform:
   m_GameObject: {fileID: 1985769561}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 0, z: 0}
+  m_LocalPosition: {x: 8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1431,3 +1457,4 @@ SceneRoots:
   - {fileID: 762998039}
   - {fileID: 702949724}
   - {fileID: 1985769563}
+  - {fileID: 811549667}
