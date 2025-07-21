@@ -1074,8 +1074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b26ed9f28c372459b6e8d4e7b09340, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 10
-  deceleration: 10
+  acceleration: 12
+  deceleration: 8
   minBounds: {x: -7.5, y: -5}
   maxBounds: {x: 7.5, y: 5}
   dead: 0

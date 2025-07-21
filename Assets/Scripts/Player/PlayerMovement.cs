@@ -95,21 +95,32 @@ public class PlayerMovement : MonoBehaviour
             }
 
             Vector2 speedDifference = targetSpeed - _rigidbody.linearVelocity;
-            _rigidbody.AddForce(_rigidbody.mass * acceleration * speedDifference);
+            _rigidbody.AddForce(speedDifference, ForceMode.Acceleration);
         }
 
-        ClampPosition();
+        ConstrainToBounds();
     }
 
-
-
-    private void ClampPosition()
+    private void ConstrainToBounds()
     {
         Vector3 pos = transform.position;
+        Vector3 velocity = _rigidbody.linearVelocity;
 
+        // Clamp position
         pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
         pos.y = Mathf.Clamp(pos.y, minBounds.y, maxBounds.y);
 
+        // If clamped, zero velocity in that axis
+        if (pos.x == minBounds.x || pos.x == maxBounds.x)
+        {
+            velocity.x = 0f;
+        }
+        if (pos.y == minBounds.y || pos.y == maxBounds.y)
+        {
+            velocity.y = 0f;
+        }
+
         transform.position = pos;
+        _rigidbody.linearVelocity = velocity;
     }
 }
