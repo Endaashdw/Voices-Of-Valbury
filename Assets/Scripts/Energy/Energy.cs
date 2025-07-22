@@ -1,8 +1,8 @@
+
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+class Energy : MonoBehaviour
 {
-    [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private float speed = 20f;
     [SerializeField] private float lifetime = 2f;
 
@@ -18,7 +18,8 @@ public class Bullet : MonoBehaviour
     {
         transform.position = position;
         gameObject.SetActive(true);
-        rigidbody.linearVelocity = Vector3.right * speed; // Moves directly to the right
+
+        rigidbody.linearVelocity = Vector3.left * speed; // Moves directly to the left
         timer = lifetime;
     }
 
@@ -31,22 +32,6 @@ public class Bullet : MonoBehaviour
             gameObject.SetActive(false);
 
             rigidbody.linearVelocity = Vector3.zero;
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (((1 << collision.gameObject.layer) & enemyLayer) != 0) // a little bit of bit manip
-        {
-            var enemyScript = collision.gameObject.GetComponent<Enemy>();
-
-            if (enemyScript == null)
-            {
-                return;
-            }
-
-            Destroy(collision.gameObject);
-            gameObject.SetActive(false);
         }
     }
 }
