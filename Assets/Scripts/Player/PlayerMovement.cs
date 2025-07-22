@@ -2,80 +2,114 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private ScaleFromMicrophone microphoneData;
+    [SerializeField] private float acceleration;
+    [SerializeField] private float deceleration;
+    [SerializeField] private Vector2 minBounds; // bottom-left world position
+    [SerializeField] private Vector2 maxBounds; // top-right world position
 
-    [SerializeField] private float lift;
-    [SerializeField] private float damping;
-    [SerializeField] private float maxSpeed;
-    
-    [SerializeField] private float minBounds; // bottom
-    [SerializeField] private float maxBounds; // top    
+    private Vector2 _movementInput;
+    public bool dead = false;
+    public bool movable = true;
+    public ScaleFromMicrophone microphoneData;
+    public Rigidbody _rigidbody;
 
-    private new Rigidbody rigidbody;
-    private float input;
+    [Header("Shooting Test")]
+    public ShootingTest shootingTest;
+    public Shooter shooter;
+    public enum TriggerCondition
+    {
+        Low,
+        High
+    }
+    public TriggerCondition limit;
+    private bool hasFlashed = false; // prevents repeat flashing
 
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
         microphoneData = FindAnyObjectByType<ScaleFromMicrophone>();
-    }
-
-    private void Start()
-    {
-        rigidbody.linearDamping = damping;
-        rigidbody.maxLinearVelocity = maxSpeed;
-    }
-
-    private void Update()
-    {
-        input = Input.GetKey(KeyCode.Space) ? 2f : 0f;   
     }
 
     private void FixedUpdate()
     {
-        ScoreManager.instance.AddToScore(1);
-
-        if (microphoneData && microphoneData.loudness > 0.01f)
+        if (!dead)
         {
-            float targetVelocity = lift * microphoneData.loudness;
-            float acceleration = targetVelocity - rigidbody.linearVelocity.y;
+            ScoreManager.instance.AddToScore(1);
+            Vector3 targetSpeed = Vector2.zero;
 
-            rigidbody.AddForce(Vector3.up * acceleration, ForceMode.Acceleration);
+            if (microphoneData != null)
+            {
+                // TriggerCondition check BEFORE anything else
+                switch (limit)
+                {
+                    case TriggerCondition.Low:
+                        if (microphoneData.normalizedLoudness <= 0.05f && !hasFlashed)
+                        {
+                            shooter.Fire();
+                            shootingTest.Flash();
+                            hasFlashed = true;
+                            return;
+                        }
+                        else if (microphoneData.normalizedLoudness > 0.05f)
+                        {
+                            hasFlashed = false;
+                        }
+                        break;
+
+                    case TriggerCondition.High:
+                        if (microphoneData.normalizedLoudness > 0.5f && !hasFlashed)
+                        {
+                            shooter.Fire();
+                            shootingTest.Flash();
+                            hasFlashed = true;
+                            return;
+                        }
+                        else if (microphoneData.normalizedLoudness <= 0.5f)
+                        {
+                            hasFlashed = false;
+                        }
+                        break;
+                }
+
+                // Movement logic
+                if (microphoneData.loudness > 0.01f)
+                {
+                    targetSpeed = new Vector2(0f, acceleration * microphoneData.loudness);
+                }
+                else
+                {
+                    targetSpeed = new Vector2(0f, -deceleration * 0.5f);
+                }
+            }
+            else
+            {
+                // Manual input fallback
+                if (_movementInput.y > 0.01f)
+                {
+                    targetSpeed = new Vector2(0f, acceleration);
+                }
+                else
+                {
+                    targetSpeed = new Vector2(0f, -deceleration * 0.5f);
+                }
+            }
+
+            Vector2 speedDifference = targetSpeed - _rigidbody.linearVelocity;
+            _rigidbody.AddForce(_rigidbody.mass * acceleration * speedDifference);
         }
-        if (input > 0.01f)
-        {
-            float targetVelocity = lift * input;
-            float acceleration = targetVelocity - rigidbody.linearVelocity.y;
 
-            rigidbody.AddForce(Vector3.up * acceleration, ForceMode.Acceleration);
-        }
-        else if (rigidbody.linearVelocity.y > 0.01f)
-        {
-            float deceleration = 0.5f * lift;
-
-            rigidbody.AddForce(Vector3.down * deceleration, ForceMode.Acceleration);
-        }
-
-        ConstrainToBounds();
+        ClampPosition();
     }
 
-    private void ConstrainToBounds()
+
+
+    private void ClampPosition()
     {
-        Vector3 position = transform.position;
-        Vector3 velocity = rigidbody.linearVelocity;
+        Vector3 pos = transform.position;
 
-        if (position.y <= minBounds && velocity.y < 0f)
-        {
-            position.y = minBounds;
-            velocity.y = 0f;
-        }
-        if (position.y >= maxBounds && velocity.y > 0f)
-        {
-            position.y = maxBounds;
-            velocity.y = 0f;
-        }
+        pos.x = Mathf.Clamp(pos.x, minBounds.x, maxBounds.x);
+        pos.y = Mathf.Clamp(pos.y, minBounds.y, maxBounds.y);
 
-        transform.position = position;
-        rigidbody.linearVelocity = velocity;
+        transform.position = pos;
     }
 }
