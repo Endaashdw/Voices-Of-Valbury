@@ -2,12 +2,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScoreManager : MonoBehaviour
+public class EnergyManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] private int baseScore;
-    private int score;
-    public static ScoreManager instance;
+    private int energy;
+    public static EnergyManager instance;
 
     void Awake()
     {
@@ -22,24 +21,15 @@ public class ScoreManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Start()
-    {
-        score = baseScore;
-    }
 
     void Update()
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Energy: " + energy;
     }
 
-    public void AddToScore(int value)
+    public void SetEnergy(int value)
     {
-        score += value;
-
-        if (score < 0)
-        {
-            score = 0;
-        }
+        energy = value;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -61,8 +51,8 @@ public class ScoreManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public int GetScore()
+    public int GetEnergy()
     {
-        return score;
+        return energy;
     }
 }
