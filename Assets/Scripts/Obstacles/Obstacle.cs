@@ -5,12 +5,12 @@ public class Obstacle : MonoBehaviour
 	[SerializeField]
 	private float speed = 5.0f;
 
-	[SerializeField] private float exitBound = -30f;
+	private float exitBound = -15f;
 	private Rigidbody rb;
 
 	[Header("Colliders")]
-	[SerializeField] private Collider collide;
-	[SerializeField] public GameObject player;
+	[SerializeField] private BoxCollider boxCollider;
+	[SerializeField] public BoxCollider playerCollider;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
@@ -26,20 +26,8 @@ public class Obstacle : MonoBehaviour
     }
 
 	private void OnTriggerEnter(Collider collision) {
-		if (collision == player.GetComponent<BoxCollider>()) {
-			KillPlayer();
+		if (collision == playerCollider) {
+			Debug.Log("Hit!");
 		}
-	}
-
-	// If using contacts instead.
-	private void OnCollisionEnter(Collision collision) {
-		if (collision.gameObject == player) {
-			KillPlayer();
-		}
-	}
-
-	private void KillPlayer() {
-		player.SetActive(false);
-		Debug.Log("Player Killed!");
 	}
 }
