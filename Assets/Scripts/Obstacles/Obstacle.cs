@@ -5,7 +5,7 @@ public class Obstacle : MonoBehaviour
 	[SerializeField]
 	private float speed = 5.0f;
 
-	[SerializeField] private float exitBound = -20f;
+	[SerializeField] private float exitBound = -30f;
 	private Rigidbody rb;
 
 	[Header("Colliders")]
@@ -33,9 +33,7 @@ public class Obstacle : MonoBehaviour
 
 	// If using contacts instead.
 	private void OnCollisionEnter(Collision collision) {
-		ContactPoint contactPoint = collision.contacts[0];
-
-		if (contactPoint.otherCollider == player.GetComponent<BoxCollider>()) {
+		if (collision.gameObject == player) {
 			KillPlayer();
 		}
 	}

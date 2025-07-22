@@ -29,7 +29,7 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = "SCORE: " + score;
+        scoreText.text = "Score: " + score;
     }
 
     public void AddToScore(int value)

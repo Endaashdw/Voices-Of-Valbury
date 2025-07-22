@@ -3,13 +3,19 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
 	[SerializeField] GameObject obstaclePrefab;
-	[SerializeField] private GameObject player;
+	[SerializeField] private GameObject	 player;
 
 	[Header("Spawn Timer")]
 	[SerializeField] private float spawnTimer;
 
 	[Header("Spawn Bounds (X - Mins, Y - Maxs)")]
+	[SerializeField] private bool randomPosition;
 	[SerializeField] private Vector2 bounds;
+
+	[Header("Initalizers/Random Angle Bounds")]
+	[SerializeField] private Vector3 initAngles;
+	[SerializeField] private bool randomAngles;
+	[SerializeField] private Vector2 angleBounds;
 
 	private float spawnTimerLeft;
 
@@ -26,9 +32,16 @@ public class ObstacleSpawner : MonoBehaviour
 
 		if (spawnTimerLeft <= 0) {
 			spawnTimerLeft = spawnTimer;
-			transform.position = new Vector3(transform.position.x, Random.Range(bounds.x, bounds.y), transform.position.z);
+			if (randomPosition)
+				transform.position = new Vector3(transform.position.x, Random.Range(bounds.x, bounds.y), transform.position.z);
 
-			GameObject obstacle = Instantiate(obstaclePrefab, transform.position, transform.rotation);
+			GameObject obstacle;
+			if (randomAngles) {
+				obstacle = Instantiate(obstaclePrefab, transform.position, Quaternion.Euler(initAngles.x, initAngles.y, Random.Range(angleBounds.x, angleBounds.y)));
+			}
+			else {
+				obstacle = Instantiate(obstaclePrefab, transform.position, transform.rotation);
+			}
 
 			obstacle.GetComponent<Obstacle>().player = player;
 		}
