@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 278200588770670321}
   - component: {fileID: 5128029823902289323}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: +100 Speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,8 @@ GameObject:
   - component: {fileID: 4487856204029039962}
   - component: {fileID: 4084531554246860398}
   - component: {fileID: 3674749381830906839}
-  m_Layer: 0
+  - component: {fileID: 3337716642175035292}
+  m_Layer: 8
   m_Name: Energy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,8 +165,22 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_Constraints: 120
+  m_CollisionDetection: 1
+--- !u!114 &3337716642175035292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7415257705230977934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d12a4cdae337f8c48b03bc193e7acaaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  lifetime: 8
