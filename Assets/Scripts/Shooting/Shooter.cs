@@ -15,10 +15,10 @@ public class Shooter : MonoBehaviour
         bullets = new Bullet[poolSize];
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(bulletPrefab);
+            GameObject obj = Instantiate(bulletPrefab, firePoint, true);
+            
             obj.SetActive(false);
             bullets[i] = obj.GetComponent<Bullet>();
-            obj.transform.SetParent(firePoint);
         }
     }
 
@@ -33,6 +33,7 @@ public class Shooter : MonoBehaviour
     public void Fire()
     {
         Bullet b = bullets[currentIndex];
+         
         b.Activate(firePoint.position);
 
         currentIndex++;
