@@ -40,7 +40,7 @@ public class ObstacleSpawner : MonoBehaviour
 				obstacle = Instantiate(obstaclePrefab, transform.position, Quaternion.Euler(initAngles.x, initAngles.y, Random.Range(angleBounds.x, angleBounds.y)));
 			}
 			else {
-				obstacle = Instantiate(obstaclePrefab, transform.position, transform.rotation);
+				obstacle = Instantiate(obstaclePrefab, transform.position, Quaternion.Euler(initAngles));
 			}
 
 			obstacle.GetComponent<Obstacle>().player = player;
