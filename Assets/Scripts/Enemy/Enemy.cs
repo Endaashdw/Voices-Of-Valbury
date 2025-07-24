@@ -46,6 +46,7 @@ public class Enemy : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & playerLayer) != 0) // a little bit of bit manip
         {
+            GameManager.instance.GameOver();
             Destroy(collision.gameObject);
         }
     }

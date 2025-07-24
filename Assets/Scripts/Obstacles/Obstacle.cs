@@ -40,6 +40,7 @@ public class Obstacle : MonoBehaviour
 
 	private void KillPlayer() {
 		player.SetActive(false);
+		GameManager.instance.GameOver();
 		Debug.Log("Player Killed!");
 	}
 }

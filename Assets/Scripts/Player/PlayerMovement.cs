@@ -33,8 +33,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ScoreManager.instance.AddToScore(1);
-
         if (microphoneData && microphoneData.loudness > 0.01f)
         {
             float targetVelocity = lift * microphoneData.loudness;
