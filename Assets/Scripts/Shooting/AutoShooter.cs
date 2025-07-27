@@ -44,7 +44,7 @@ public class AutoShooter : MonoBehaviour
             return;
         }
 
-        if (Physics.Raycast(firePoint.position, Vector3.right, out RaycastHit hit, 15f, enemyLayer))
+        if (Physics.Raycast(firePoint.position, Vector3.right, out RaycastHit hit, 20f, enemyLayer))
         {
             aimTimer += Time.fixedDeltaTime;
 
@@ -54,7 +54,7 @@ public class AutoShooter : MonoBehaviour
         {
             aimTimer -= 0.5f * Time.fixedDeltaTime; // half reduction rate
 
-            Debug.DrawRay(firePoint.position, Vector3.right * 15f, Color.red);
+            Debug.DrawRay(firePoint.position, Vector3.right * 20f, Color.red);
         }
 
         aimTimer = Mathf.Max(aimTimer, 0);

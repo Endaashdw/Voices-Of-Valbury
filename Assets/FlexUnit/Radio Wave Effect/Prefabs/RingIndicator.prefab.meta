@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: daea3d57c5238491a803db47e26d0114
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 314289
+  packageName: Volumetric Radio Wave Effect for Unity
+  packageVersion: 1.0
+  assetPath: Assets/FlexUnit/Radio Wave Effect/Prefabs/RingIndicator.prefab
+  uploadId: 741627
