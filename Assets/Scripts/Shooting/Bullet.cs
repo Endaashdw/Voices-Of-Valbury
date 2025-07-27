@@ -45,7 +45,7 @@ public class Bullet : MonoBehaviour
                 return;
             }
 
-            Destroy(collision.gameObject);
+            enemyScript.Die();
             gameObject.SetActive(false);
         }
     }
