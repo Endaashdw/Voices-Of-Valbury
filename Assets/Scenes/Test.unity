@@ -517,7 +517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -331.5, y: 226}
+  m_AnchoredPosition: {x: -714, y: 384}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &345185188
@@ -907,7 +907,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 331.5, y: 226}
+  m_AnchoredPosition: {x: 692, y: 384}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &550983080
@@ -1086,14 +1086,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d018eaf92422c41b979ee8ea760e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefab: {fileID: 8649464582913108481, guid: 96f056463db39f74eb4f5e7585eafe61, type: 3}
+  obstaclePrefab: {fileID: 2161790796559496666, guid: bb7811fa44c2b6741862d13acb7b3142, type: 3}
   player: {fileID: 1366629585}
   spawnTimer: 6
   randomPosition: 1
-  bounds: {x: -15, y: -12}
-  initAngles: {x: -90, y: 0, z: -45}
-  randomAngles: 0
-  angleBounds: {x: 0, y: 360}
+  bounds: {x: -20, y: -15}
+  initAngles: {x: -90, y: 0, z: 0}
+  randomAngles: 1
+  angleBounds: {x: -25, y: 25}
 --- !u!4 &702949724
 Transform:
   m_ObjectHideFlags: 0
@@ -1103,7 +1103,7 @@ Transform:
   m_GameObject: {fileID: 702949722}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 85, y: -9, z: 0}
+  m_LocalPosition: {x: 85, y: -9, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2403,8 +2403,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -8.85, z: 0}
-  m_LocalScale: {x: 40, y: 40, z: 40}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 70, y: 70, z: 70}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
