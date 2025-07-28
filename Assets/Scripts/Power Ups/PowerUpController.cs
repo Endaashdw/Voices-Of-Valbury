@@ -3,6 +3,7 @@ using UnityEngine;
 public class PowerUpController : MonoBehaviour
 {
     [SerializeField] private GameObject shieldVisual;
+    [SerializeField] private GameObject magnetVisual;
     
     private bool isMagnetActive;
     private float magnetTimer;
@@ -14,6 +15,7 @@ public class PowerUpController : MonoBehaviour
 
     private void Start()
     {
+        magnetVisual.SetActive(false);
         shieldVisual.SetActive(false);
     }
 
@@ -31,6 +33,7 @@ public class PowerUpController : MonoBehaviour
         if (magnetTimer <= 0)
         {
             isMagnetActive = false;
+            magnetVisual.SetActive(false);
             return;
         }
         
@@ -71,6 +74,7 @@ public class PowerUpController : MonoBehaviour
         magnetTimer = duration;
         magnetRadius = radius;
         attractSpeed = speed;
+        magnetVisual.SetActive(true);
     }
     
     public void ActivateShield(float duration)
