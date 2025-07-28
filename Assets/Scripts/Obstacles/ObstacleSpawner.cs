@@ -30,20 +30,23 @@ public class ObstacleSpawner : MonoBehaviour
     {
 		spawnTimerLeft -= Time.deltaTime;
 
-		if (spawnTimerLeft <= 0) {
-			spawnTimerLeft = spawnTimer;
-			if (randomPosition)
-				transform.position = new Vector3(transform.position.x, Random.Range(bounds.x, bounds.y), transform.position.z);
+		if (spawnTimerLeft <= 0)
+			{
+				spawnTimerLeft = spawnTimer;
+				if (randomPosition)
+					transform.position = new Vector3(transform.position.x, Random.Range(bounds.x, bounds.y), transform.position.z);
 
-			GameObject obstacle;
-			if (randomAngles) {
-				obstacle = Instantiate(obstaclePrefab, transform.position, Quaternion.Euler(initAngles.x, initAngles.y, Random.Range(angleBounds.x, angleBounds.y)));
-			}
-			else {
-				obstacle = Instantiate(obstaclePrefab, transform.position, Quaternion.Euler(initAngles));
-			}
+				GameObject obstacle;
+				if (randomAngles)
+				{
+					obstacle = Instantiate(obstaclePrefab, transform.position, Quaternion.Euler(initAngles.x, initAngles.y, Random.Range(angleBounds.x, angleBounds.y)));
+				}
+				else
+				{
+					obstacle = Instantiate(obstaclePrefab, transform.position, Quaternion.Euler(initAngles));
+				}
 
-			obstacle.GetComponent<Obstacle>().player = player;
-		}
+				obstacle.GetComponent<Obstacle>().player = player;
+			}
     }
 }
