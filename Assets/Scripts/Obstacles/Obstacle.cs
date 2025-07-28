@@ -27,19 +27,24 @@ public class Obstacle : MonoBehaviour
 
 	private void OnTriggerEnter(Collider collision) {
 		if (collision == player.GetComponent<BoxCollider>()) {
-			KillPlayer();
+			var player = collision.gameObject.GetComponent<PlayerMovement>();
+
+            if (player)
+            {
+                player.TakeDamage();
+            }
 		}
 	}
 
 	// If using contacts instead.
 	private void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject == player) {
-			KillPlayer();
-		}
-	}
+			var player = collision.gameObject.GetComponent<PlayerMovement>();
 
-	private void KillPlayer() {
-		player.SetActive(false);
-		Debug.Log("Player Killed!");
+            if (player)
+            {
+                player.TakeDamage();
+            }
+		}
 	}
 }

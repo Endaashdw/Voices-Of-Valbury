@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float lift;
     [SerializeField] private float damping;
     [SerializeField] private float maxSpeed;
-    
+
     [SerializeField] private float minBounds; // bottom
     [SerializeField] private float maxBounds; // top    
 
@@ -28,13 +28,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        input = Input.GetKey(KeyCode.Space) ? 2f : 0f;   
+        input = Input.GetKey(KeyCode.Space) ? 2f : 0f;
     }
 
     private void FixedUpdate()
     {
-        ScoreManager.instance.AddToScore(1);
-
         if (microphoneData && microphoneData.loudness > 0.01f)
         {
             float targetVelocity = lift * microphoneData.loudness;
@@ -77,5 +75,19 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position = position;
         rigidbody.linearVelocity = velocity;
+    }
+
+    public void TakeDamage()
+    {
+        var powerUpController = GetComponent<PowerUpController>();
+
+        if (powerUpController != null && powerUpController.HasShield())
+        {
+            // Shield absorbs damage
+            powerUpController.ActivateShield(0); // Immediately deactivate shield
+            return;
+        }
+
+        GameManager.instance.GameOver();
     }
 }

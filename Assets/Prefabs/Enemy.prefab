@@ -161,13 +161,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3c93cb9d14e76c4ba74efdecf375b83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
   smoothTime: 0.5
   chargeDelay: 5
   chargeSpeed: 20
   chargeTime: 5
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 128
+  powerUpPrefabs:
+  - {fileID: 4198999081709565847, guid: 6eaece885e45ab7439e00ba00c4d4456, type: 3}
+  - {fileID: 7817919110580075466, guid: 2297ecce2f23b404ca460d7ea163fefb, type: 3}
+  dropChance: 0.3
 --- !u!65 &738716479374400049
 BoxCollider:
   m_ObjectHideFlags: 0
