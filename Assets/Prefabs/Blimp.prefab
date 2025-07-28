@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  exitBound: -30
+  exitBound: -40
   collide: {fileID: 2280322443612665283}
   player: {fileID: 0}
 --- !u!1 &8782905894658545051

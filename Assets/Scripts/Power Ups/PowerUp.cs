@@ -19,7 +19,7 @@ public abstract class PowerUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             ApplyPowerUp(other.gameObject);
-            AudioSource.PlayClipAtPoint(collectSound, transform.position);
+            //AudioSource.PlayClipAtPoint(collectSound, transform.position);
             Destroy(gameObject);
         }
     }
