@@ -24,7 +24,7 @@ public class EnergyManager : MonoBehaviour
 
     void Update()
     {
-        scoreText.text = "Energy: " + energy;
+        //scoreText.text = "Energy: " + energy;
     }
 
     public void SetEnergy(int value)

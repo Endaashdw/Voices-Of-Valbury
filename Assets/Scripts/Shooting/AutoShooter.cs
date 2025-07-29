@@ -10,6 +10,7 @@ public class AutoShooter : MonoBehaviour
     [SerializeField] private float aimTime = 1f;
     [SerializeField] private float fireCooldown = 1.5f;
     [SerializeField] private int maxEnergy = 5;
+    [SerializeField] private UnityEngine.UI.Image image;
 
     private float aimTimer;
     private float fireCooldownTimer;
@@ -75,6 +76,13 @@ public class AutoShooter : MonoBehaviour
             collision.gameObject.SetActive(false);
 
             energy++;
+
+            if (energy > maxEnergy)
+            {
+                energy = maxEnergy;
+            }
+
+            SetEnergyBar();
         }
     }
 
@@ -100,5 +108,12 @@ public class AutoShooter : MonoBehaviour
         if (currentIndex >= maxEnergy) currentIndex = 0;
 
         energy--;
+        SetEnergyBar();
+    }
+
+    public void SetEnergyBar()
+    {
+        image.fillAmount = (float) energy / maxEnergy;
+        Debug.Log("Energy: " + (float) energy / maxEnergy);
     }
 }

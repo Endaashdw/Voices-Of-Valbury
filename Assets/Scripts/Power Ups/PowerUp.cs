@@ -3,7 +3,6 @@ using UnityEngine;
 public abstract class PowerUp : MonoBehaviour
 {
     [SerializeField] protected float duration = 5f;
-    [SerializeField] protected AudioClip collectSound;
 
     private void Start()
     {
@@ -19,7 +18,6 @@ public abstract class PowerUp : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             ApplyPowerUp(other.gameObject);
-            AudioSource.PlayClipAtPoint(collectSound, transform.position);
             Destroy(gameObject);
         }
     }

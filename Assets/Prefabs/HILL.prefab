@@ -67,7 +67,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 47b897bbab1045a49a689b50d8f40a66, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e913e02d5f4b4104881285622bba664a, type: 2}
+      objectReference: {fileID: 2100000, guid: c6c49c3938e001644ab7e16d7a914128, type: 2}
     - target: {fileID: 919132149155446097, guid: 47b897bbab1045a49a689b50d8f40a66, type: 3}
       propertyPath: m_Name
       value: HILL
