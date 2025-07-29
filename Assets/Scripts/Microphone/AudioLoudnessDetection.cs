@@ -21,7 +21,11 @@ public class AudioLoudnessDetection : MonoBehaviour
     {
 		//get first microphone on device list
 		string microphoneName = Microphone.devices[0];
-		Debug.Log(Microphone.devices);
+
+		foreach (var device in Microphone.devices) {
+            Debug.Log(device);
+        } 
+
         microphoneClip = Microphone.Start(microphoneName, true, 20, AudioSettings.outputSampleRate);
     }
 
@@ -33,6 +37,8 @@ public class AudioLoudnessDetection : MonoBehaviour
     public float GetAudioClipLoudness(int clipPosition, AudioClip clip)
     {
         int startPosition = clipPosition - sampleWindow;
+
+        // print(startPosition);
 
         // Guard clause BEFORE calling GetData
         if (startPosition < 0)
@@ -47,6 +53,8 @@ public class AudioLoudnessDetection : MonoBehaviour
         float totalLoudness = 0;
         for (int i = 0; i < sampleWindow; i++)
         {
+            print(waveData[i]);
+
             totalLoudness += Mathf.Abs(waveData[i]);
         }
 
