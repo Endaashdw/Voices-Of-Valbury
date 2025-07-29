@@ -88,6 +88,13 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        var autoShooter = GetComponent<AutoShooter>();
+
+        if (autoShooter != null && autoShooter.GetCurrentEnergy() <= 0f)
+        {
+            GameManager.instance.GameOver();
+        }
+
         GameManager.instance.GameOver();
     }
 }
