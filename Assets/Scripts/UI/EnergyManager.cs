@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class EnergyManager : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI scoreText;
-    private int energy;
+    private float energy;
     public static EnergyManager instance;
 
     void Awake()
@@ -27,7 +27,7 @@ public class EnergyManager : MonoBehaviour
         //scoreText.text = "Energy: " + energy;
     }
 
-    public void SetEnergy(int value)
+    public void SetEnergy(float value)
     {
         energy = value;
     }
@@ -51,7 +51,7 @@ public class EnergyManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    public int GetEnergy()
+    public float GetEnergy()
     {
         return energy;
     }
