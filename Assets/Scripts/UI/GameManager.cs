@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Results")]
     public TMP_Text scoreText;
+    public Button[] buttons;
+    public GameObject[] saveRelatedObjects;
+    public TMP_InputField textInputField;
 
     void Awake()
     {
@@ -66,11 +70,14 @@ public class GameManager : MonoBehaviour
     void DisableScreens()
     {
         resultScreen.SetActive(false);
+        SetButtons(false);
+        SetSaveObjects(false);
     }
 
     public void GameOver()
     {
         scoreText.text = ScoreManager.instance.GetScore().ToString();
+
         ChangeState(GameState.GameOver);
     }
 
@@ -78,5 +85,39 @@ public class GameManager : MonoBehaviour
     {
         gameScreen.SetActive(false);
         resultScreen.SetActive(true);
+
+        Debug.Log(ScoreManager.instance.GetScore() + " VS " + SaveManager.instance.GetSave().HighestScore());
+        if (!SaveManager.instance.GetSave().CheckForHighScore(ScoreManager.instance.GetScore()))
+        {
+            SetButtons(true);
+        }
+        else
+        {
+            SetSaveObjects(true);
+        }
+    }
+
+    public void SetSaveObjects(bool value)
+    {
+        foreach (GameObject saveRelatedObject in saveRelatedObjects)
+        {
+            saveRelatedObject.SetActive(value);
+        }
+    }
+
+    public void SetButtons(bool value)
+    {
+        foreach (Button button in buttons)
+        {
+            button.gameObject.SetActive(value);
+        }
+    }
+
+    public void SaveScore()
+    {
+        Debug.Log("Saving score of " + ScoreManager.instance.GetScore());
+        SaveManager.instance.GetSave().UpdateScoreList(ScoreManager.instance.GetScore(), textInputField.text);
+        SaveManager.instance.SaveToJSON();
+        SetButtons(true);
     }
 }
