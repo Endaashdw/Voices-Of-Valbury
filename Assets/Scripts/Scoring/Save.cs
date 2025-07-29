@@ -22,13 +22,18 @@ public class Save
 
     public void UpdateScoreList(int newScore, string newName)
     {
-        topScores.Add(new ScoreEntry { score = newScore, playerName = newName });
+        string lowerName = newName.ToLower();
 
-        topScores.Sort((a, b) => b.score.CompareTo(a.score));
-
-        if (topScores.Count > 10)
+        if (lowerName != "gdg" && lowerName != "invalid")
         {
-            topScores.RemoveRange(10, topScores.Count - 10);
+            topScores.Add(new ScoreEntry { score = newScore, playerName = newName });
+
+            topScores.Sort((a, b) => b.score.CompareTo(a.score));
+
+            if (topScores.Count > 10)
+            {
+                topScores.RemoveRange(10, topScores.Count - 10);
+            }
         }
     }
 

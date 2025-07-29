@@ -22,9 +22,17 @@ public class GameManager : MonoBehaviour
 
     [Header("Results")]
     public TMP_Text scoreText;
-    public Button[] buttons;
+    public GameObject[] retryRelatedObjects;
     public GameObject[] saveRelatedObjects;
     public TMP_InputField textInputField;
+
+    [Header("Timer")]
+    public float timeLimit;
+    public float timer = 0f;
+    public bool timerReady = false;
+    public TMP_Text timerText;
+    public SceneController controller;
+    public string sceneName;
 
     void Awake()
     {
@@ -54,6 +62,19 @@ public class GameManager : MonoBehaviour
                     Debug.Log("GAME OVER");
                     Time.timeScale = 0f;
                     DisplayResults();
+                }
+
+                if (isGameOver && timerReady)
+                {
+                    timer += Time.unscaledDeltaTime;
+
+                    float remaining = Mathf.Max(timeLimit - timer, 0f);
+                    timerText.text = $"Returning in: {remaining:F1}s"; 
+
+                    if (timer > timeLimit)
+                    {
+                        controller.SceneChange(sceneName);
+                    }
                 }
                 break;
             default:
@@ -103,14 +124,16 @@ public class GameManager : MonoBehaviour
         {
             saveRelatedObject.SetActive(value);
         }
+        timerReady = false;
     }
 
     public void SetButtons(bool value)
     {
-        foreach (Button button in buttons)
+        foreach (GameObject retryRelatedObject in retryRelatedObjects)
         {
-            button.gameObject.SetActive(value);
+            retryRelatedObject.SetActive(value);
         }
+        timerReady = true;
     }
 
     public void SaveScore()
