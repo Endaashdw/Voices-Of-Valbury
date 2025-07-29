@@ -54,6 +54,7 @@ public class Enemy : MonoBehaviour
             if (player)
             {
                 player.TakeDamage();
+                Destroy(gameObject);
             }
         }
     }
@@ -93,7 +94,7 @@ public class Enemy : MonoBehaviour
     }
     
     public void Die()
-    {   
+    {
         if (Random.value <= dropChance && powerUpPrefabs.Length > 0)
         {
             print(true);

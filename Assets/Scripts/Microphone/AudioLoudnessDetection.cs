@@ -53,8 +53,6 @@ public class AudioLoudnessDetection : MonoBehaviour
         float totalLoudness = 0;
         for (int i = 0; i < sampleWindow; i++)
         {
-            print(waveData[i]);
-
             totalLoudness += Mathf.Abs(waveData[i]);
         }
 
