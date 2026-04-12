@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner instance { get; private set; }
+
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private float spawnInterval = 3f;
@@ -28,6 +30,7 @@ public class EnemySpawner : MonoBehaviour
 
         nextSpawnTime = Time.time + spawnInterval;
         spawnedEnemies = new List<Enemy>(new Enemy[spawnPoints.Length]);
+        instance = this;
     }
 
     private void Update()
@@ -49,7 +52,10 @@ public class EnemySpawner : MonoBehaviour
         {
             if (spawnedEnemies[i] == null)
             {
-                freeIndices.Add(i);
+                if (!Physics.Raycast(spawnPoints[i].position + spawnOffset, Vector3.left, 10f))
+                {
+                    freeIndices.Add(i);
+                }
             }
         }
 

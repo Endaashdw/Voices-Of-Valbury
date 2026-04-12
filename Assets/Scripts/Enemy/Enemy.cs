@@ -9,11 +9,14 @@ public class Enemy : MonoBehaviour
     }
 
     [SerializeField] private LayerMask playerLayer;
-    
+
     [SerializeField] private float smoothTime = 1f;
     [SerializeField] private float chargeDelay = 5f;
     [SerializeField] private float chargeSpeed = 20f;
     [SerializeField] private float chargeTime = 5f;
+
+    [SerializeField] private GameObject[] powerUpPrefabs;
+    [SerializeField][Range(0f, 1f)] private float dropChance = 0.3f;
 
     private Vector3 smoothVelocity = Vector3.zero;
     private Vector3 targetPosition;
@@ -46,7 +49,12 @@ public class Enemy : MonoBehaviour
     {
         if (((1 << collision.gameObject.layer) & playerLayer) != 0) // a little bit of bit manip
         {
-            Destroy(collision.gameObject);
+            var player = collision.gameObject.GetComponent<PlayerMovement>();
+
+            if (player)
+            {
+                player.TakeDamage();
+            }
         }
     }
 
@@ -73,7 +81,7 @@ public class Enemy : MonoBehaviour
 
         if (timeSinceCharge >= chargeTime)
         {
-            Destroy(gameObject);
+            Die();
         }
     }
 
@@ -82,5 +90,18 @@ public class Enemy : MonoBehaviour
         targetPosition = position;
         state = State.Spawning;
         spawnTime = Time.time;
+    }
+    
+    public void Die()
+    {   
+        if (Random.value <= dropChance && powerUpPrefabs.Length > 0)
+        {
+            print(true);
+
+            int index = Random.Range(0, powerUpPrefabs.Length);
+            Instantiate(powerUpPrefabs[index], transform.position, Quaternion.identity);
+        }
+        
+        Destroy(gameObject);
     }
 }

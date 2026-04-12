@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 99f2b789237f24eb2b2c1345c96be265
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 314289
+  packageName: Volumetric Radio Wave Effect for Unity
+  packageVersion: 1.0
+  assetPath: Assets/FlexUnit/Radio Wave Effect/Prefabs/Signal.prefab
+  uploadId: 741627
