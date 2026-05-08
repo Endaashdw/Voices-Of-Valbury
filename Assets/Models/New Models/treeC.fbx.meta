@@ -3,7 +3,112 @@ guid: 3e65f6e91cd5c5843a5c86ebf6397683
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Branch
+    second: {fileID: 2100000, guid: 85cf07d3321bd764c9a60b92954fcebb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.051
+    second: {fileID: 2100000, guid: 4165e3b7f7aee954cbdbbb86b833ddd7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.052
+    second: {fileID: 2100000, guid: 087acd7c3f1449447b2751e1955f2047, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.053
+    second: {fileID: 2100000, guid: cc7198b1595e9e94d95808b7e7940115, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.054
+    second: {fileID: 2100000, guid: a642f8ed68cdfec408c19016c3366088, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.055
+    second: {fileID: 2100000, guid: 3109b553b61c7da4280fe9dcd0b814cc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.056
+    second: {fileID: 2100000, guid: ed703d170b4f28c45a9e72c36b4ae3f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.057
+    second: {fileID: 2100000, guid: 953e16badcd659e449e262e4f1eacc6e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.058
+    second: {fileID: 2100000, guid: 2a4cf7d00b9509743af8c56f1522b8bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.059
+    second: {fileID: 2100000, guid: a018c628dfe31624292be2c904e30ef1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.060
+    second: {fileID: 2100000, guid: 96a17957180d1a649a03b79ab8d5d8d1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.061
+    second: {fileID: 2100000, guid: 514050e7dc60ccf4681972d30f2a86e8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.062
+    second: {fileID: 2100000, guid: 20a5624f9fca3c443a6b15b16915d2fa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.063
+    second: {fileID: 2100000, guid: ec68813dea99eb74d8b4ed6e66360d93, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.064
+    second: {fileID: 2100000, guid: a7b0251b64f76494cb102a4b104d1095, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.065
+    second: {fileID: 2100000, guid: e5fd7292b70c0ae48b932bd1f031cff3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.066
+    second: {fileID: 2100000, guid: ef31af8eb946a8f489e98f2835bdb46a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.067
+    second: {fileID: 2100000, guid: e28495d15ac69744a97eca4a3a287762, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.068
+    second: {fileID: 2100000, guid: a9d6f90f12b81d94bbca0cb7145a0647, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.069
+    second: {fileID: 2100000, guid: 6411b15bb244de946a1a183d7b5c0b32, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leaves.070
+    second: {fileID: 2100000, guid: d324470930957604b8a8db14d760f147, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

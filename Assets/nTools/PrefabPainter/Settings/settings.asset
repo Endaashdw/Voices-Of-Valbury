@@ -332,7 +332,7 @@ MonoBehaviour:
       customPreviewImage: {fileID: 0}
     - name: treeB
       settings:
-        brushRadius: 10.6
+        brushRadius: 13
         brushSpacing: 3.54
         brushOverlapCheckMode: 0
         brushOverlapDistance: 0.5
