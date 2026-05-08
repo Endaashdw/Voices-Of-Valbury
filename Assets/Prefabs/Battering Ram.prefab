@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2477882273569827874}
   - component: {fileID: 348887103058733768}
   - component: {fileID: 4738283168976728461}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,17 +122,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battering Ram
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 1ba25e2965f842b48b898e2dedc56a12, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1ba25e2965f842b48b898e2dedc56a12, type: 3}
       propertyPath: m_LocalScale.x
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1ba25e2965f842b48b898e2dedc56a12, type: 3}
       propertyPath: m_LocalScale.y
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1ba25e2965f842b48b898e2dedc56a12, type: 3}
       propertyPath: m_LocalScale.z
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1ba25e2965f842b48b898e2dedc56a12, type: 3}
       propertyPath: m_LocalPosition.x

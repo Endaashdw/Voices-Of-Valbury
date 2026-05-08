@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 383677620802204850}
   - component: {fileID: 621021698989383988}
   - component: {fileID: 2199524362300361217}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Blimp
   m_TagString: Untagged
   m_Icon: {fileID: 0}

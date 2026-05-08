@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 399576022651341236}
   - component: {fileID: 7523407581762773930}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,15 +105,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1d5440b3fdf27b346b9e5ddcddd395a6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1d5440b3fdf27b346b9e5ddcddd395a6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1d5440b3fdf27b346b9e5ddcddd395a6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 1d5440b3fdf27b346b9e5ddcddd395a6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -209,8 +209,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
+  m_UseGravity: 1
+  m_IsKinematic: 1
   m_Interpolate: 1
   m_Constraints: 120
   m_CollisionDetection: 1
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 270cca284e3651748bf5dabe4b9b4f89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 12
   exitBound: -30
   collide: {fileID: 8337005696269628430}
   player: {fileID: 0}
